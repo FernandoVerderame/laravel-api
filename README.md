@@ -1,19 +1,11 @@
-## Esercizio di oggi: Laravel Boolfolio - Project Technology
+## Esercizio di oggi: Laravel Boolfolio - API (laravel-api)
 
-Continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo e aggiungiamo una nuova entità `Technology`. Questa entità rappresenta le tecnologie utilizzate ed è in relazione many to many con i progetti.
+Continuiamo a lavorare sul codice dei giorni scorsi, ma in una nuova repo.
 
-I task da svolgere sono diversi, ma alcuni di essi sono un ripasso di ciò che abbiamo fatto nelle lezioni dei giorni scorsi:
+L’esercizio di oggi è suddiviso in milestone ed è importante che ne seguiate l’ordine.
 
-- Creare la migration per la tabella technologies.
-- Creare il model `Technology`.
-- Creare la migration per la tabella pivot `project_technology`.
-- Aggiungere ai model `Technology` e `Project` i metodi per definire la relazione many to many.
-- Visualizzare nella pagina di dettaglio di un progetto le tecnologie utilizzate, se presenti.
-- Permettere all’utente di associare le tecnologie nella pagina di creazione e modifica di un progetto.
-- Gestire il salvataggio dell’associazione progetto-tecnologie con opportune regole di validazione.
+### Milestone 1
+Aggiungiamo al nostro progetto Laravel una nuovo Api/ProjectController. Questo controller risponderà a delle richieste via API e si occuperà di restituire la lista dei progetti presenti nel database in formato json.
 
-### Bonus 1:
-Creare il seeder per il model Technology.
-
-### Bonus 2:
-Aggiungere le operazioni CRUD per il model Technology, in modo da gestire le tecnologie utilizzate nei progetti direttamente dal pannello di amministrazione.
+### Milestone 2
+Testiamo la chiamata API tramite Postman e assicuriamoci di ricevere i dati correttamente.
