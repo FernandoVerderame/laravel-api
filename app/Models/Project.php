@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Support\Facades\Vite;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -58,5 +59,11 @@ class Project extends Model
         return $query->whereHas('technologies', function ($query) use ($technology_id) {
             $query->where('technologies.id', $technology_id);
         });
+    }
+
+    // Accessor
+    public function image(): Attribute
+    {
+        return Attribute::make(fn ($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
     }
 }
