@@ -20,4 +20,7 @@ use Illuminate\Support\Facades\Route;
 });*/
 
 // Api routes
-Route::apiResource('projects', ProjectController::class)->only('index');
+Route::apiResource('projects', ProjectController::class)->only('index', 'show');
+
+// Api show route
+Route::get('projects/{id}', [ProjectController::class, 'show']);
