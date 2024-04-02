@@ -13,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::whereIsCompleted(true)->latest()->paginate(3);
+        $projects = Project::whereIsCompleted(true)->latest()->withRelations()->paginate(3);
 
         return response()->json($projects);
     }
@@ -31,7 +31,7 @@ class ProjectController extends Controller
      */
     public function show(string $slug)
     {
-        $project = Project::whereIsCompleted(true)->whereSlug($slug)->first();
+        $project = Project::whereIsCompleted(true)->whereSlug($slug)->withRelations()->first();
 
         if (!$project) return response(null, 404);
 

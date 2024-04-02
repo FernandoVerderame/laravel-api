@@ -61,6 +61,12 @@ class Project extends Model
         });
     }
 
+    // Query Scope Relations
+    public function scopeWithRelations(Builder $query)
+    {
+        return $query->with('type', 'technologies');
+    }
+
     // Accessor
     public function image(): Attribute
     {
