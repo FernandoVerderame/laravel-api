@@ -26,7 +26,7 @@ class ProjectFactory extends Factory
 
         $title = fake()->text(20);
         $slug = Str::slug($title);
-        $img = fake()->image(null, 250, 250);
+        $img = fake()->imageUrl(null, 250, 250);
 
         $img_url = Storage::putFileAs('project_images', $img, "$slug.png");
 
@@ -47,7 +47,7 @@ class ProjectFactory extends Factory
     {
         return $this->afterCreating(function (Project $project) {
             $technology_ids = Technology::pluck('id')->toArray();
-            $project_technologies = array_filter($technology_ids, fn () => rand(0, 1));
+            $project_technologies = array_filter($technology_ids, fn() => rand(0, 1));
             $project->technologies()->attach($project_technologies);
         });
     }

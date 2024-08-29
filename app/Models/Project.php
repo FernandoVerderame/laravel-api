@@ -24,7 +24,7 @@ class Project extends Model
 
     public function printImage()
     {
-        return Vite::asset('public/storage/' . $this->image);
+        return Vite::asset('storage/' . $this->image);
     }
 
     public function type()
@@ -70,6 +70,6 @@ class Project extends Model
     // Accessor
     public function image(): Attribute
     {
-        return Attribute::make(fn ($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
+        return Attribute::make(fn($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
     }
 }
