@@ -26,7 +26,7 @@ class ProjectFactory extends Factory
 
         $title = fake()->text(20);
         $slug = Str::slug($title);
-        $img = fake()->image(null, 250, 250);
+        $img = fake()->imageUrl(250, 250, null, true);
 
         $img_url = Storage::putFileAs('project_images', $img, "$slug.png");
 

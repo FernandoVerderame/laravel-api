@@ -24,7 +24,7 @@ class Project extends Model
 
     public function printImage()
     {
-        return Vite::asset('public/storage/' . $this->image);
+        return asset('storage/' . $this->image);
     }
 
     public function type()
