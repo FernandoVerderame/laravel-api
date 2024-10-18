@@ -22,11 +22,6 @@ class Project extends Model
         return Carbon::create($this->$column)->format($format);
     }
 
-    public function printImage()
-    {
-        return asset('storage/' . $this->image);
-    }
-
     public function type()
     {
         return $this->belongsTo(Type::class);
@@ -70,6 +65,6 @@ class Project extends Model
     // Accessor
     public function image(): Attribute
     {
-        return Attribute::make(fn ($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
+        return Attribute::make(fn($value) => $value && app('request')->is('api/*') ? url('storage/' . $value) : $value);
     }
 }

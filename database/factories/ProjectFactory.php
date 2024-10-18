@@ -47,7 +47,7 @@ class ProjectFactory extends Factory
     {
         return $this->afterCreating(function (Project $project) {
             $technology_ids = Technology::pluck('id')->toArray();
-            $project_technologies = array_filter($technology_ids, fn () => rand(0, 1));
+            $project_technologies = array_filter($technology_ids, fn() => rand(0, 1));
             $project->technologies()->attach($project_technologies);
         });
     }
