@@ -12,7 +12,7 @@
         <div class="row">
             @if($project->image)
                 <div class="col-3">
-                    <img src="{{ $project->printImage() }}" class="img-fluid" alt="{{ $project->title }}">
+                    <img src="{{ Vite::asset('public/storage/' . $project->image) }}" class="img-fluid" alt="{{ $project->title }}">
                 </div>
             @endif
 

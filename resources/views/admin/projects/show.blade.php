@@ -16,7 +16,7 @@
 
 <div class="clearfix py-4 border-bottom mb-3">
     @if($project->image)
-        <img src="{{ $project->printImage() }}" class="img-fluid" alt="{{ $project->title }}" class="me-2 float-start">
+        <img src="{{ Vite::asset('public/storage/' . $project->image) }}" class="img-fluid" alt="{{ $project->title }}" class="me-2 float-start">
     @endif
     <p>{{ $project->description }}</p>
     <div class="d-flex justify-content-between align-items-center">
